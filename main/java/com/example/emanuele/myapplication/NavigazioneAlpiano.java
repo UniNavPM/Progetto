@@ -18,6 +18,8 @@ import com.onlylemi.mapview.library.utils.MapUtils;
 
 import java.util.List;
 
+import static com.example.emanuele.myapplication.VisualizzaPianoStanza.toBitmap;
+
 
 public class NavigazioneAlpiano extends AppCompatActivity {
     private MapView mapView;
@@ -34,7 +36,7 @@ public class NavigazioneAlpiano extends AppCompatActivity {
         setContentView(R.layout.activity_navigazione_alpiano);
 
         textView=(TextView)findViewById(R.id.tv);
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+        final DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
         Position p=Position.getInstance();
 
@@ -42,25 +44,27 @@ public class NavigazioneAlpiano extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent f=new Intent(getApplicationContext(),QRCode.class);
-                startActivity(f);
+                Intent f=new Intent(getApplicationContext(),Navigazione.class);//dopo che l utente ha raggiunto le scale puo partire direttamente l activity navigazione
+                Position p=Position.getInstance();
+                databaseAccess.getMarksPassaggioCod(p.getTarget());
+                startActivity(f);                                           //bisogna impostare però il punto di partenza dato che l utente arriva dalle scale
             }
         });
 
-       /* marks =databaseAccess.getMarks(p.getDestinationStanza());
-        marks.add(p.getPosition());
-        nodes=databaseAccess.getNodesPiani(p.getDestinationPiano());
-        nodesContract = databaseAccess.getNodesContractPiani(p.getDestinationPiano());
+        marks =databaseAccess.getMarksPassaggio(p.getPiano());
+        //marks.add(p.getPosition());
+        nodes=databaseAccess.getNodesPiani(p.getPiano());
+        nodesContract = databaseAccess.getNodesContractPiani(p.getPiano());
 
         mapView = (MapView) findViewById(R.id.mapview);
-        byte[] data = databaseAccess.getImage(p.getPiano());databaseAccess.close();
+        byte[] data = databaseAccess.getImage(p.getPiano());
         Bitmap bitmap = toBitmap(data);
         mapView.loadMap(bitmap);
 
         mapView.setMapViewListener(new MapViewListener() {
             @Override
             public void onMapLoadSuccess() {
-                Position p=Position.getInstance();
+                /*Position p=Position.getInstance();
                 routeLayer = new RouteLayer(mapView);
                 mapView.addLayer(routeLayer);
                 markLayer = new MarkLayer(mapView, marks,marksName);
@@ -69,6 +73,25 @@ public class NavigazioneAlpiano extends AppCompatActivity {
                         (p.getPosition(),marks.get(0), nodes,nodesContract);
                 routeLayer.setNodeList(nodes);
                 routeLayer.setRouteList(routeList);
+                mapView.refresh();*/
+                routeLayer = new RouteLayer(mapView);
+                mapView.addLayer(routeLayer);
+
+                markLayer = new MarkLayer(mapView, marks, marksName);
+                mapView.addLayer(markLayer);
+                markLayer.setMarkIsClickListener(new MarkLayer.MarkIsClickListener() {
+                    @Override
+                    public void markIsClick(int num) {
+                        Position p=Position.getInstance();
+                        PointF target = new PointF(marks.get(num).x, marks.get(num).y);
+                        List<Integer> routeList = MapUtils.getShortestDistanceBetweenTwoPoints
+                                (p.getPosition(), target, nodes, nodesContract);
+                        p.setTarget(target);
+                        routeLayer.setNodeList(nodes);
+                        routeLayer.setRouteList(routeList);
+                        mapView.refresh();
+                    }
+                });
                 mapView.refresh();
             }
 
@@ -76,6 +99,6 @@ public class NavigazioneAlpiano extends AppCompatActivity {
             public void onMapLoadFail() {
             }
 
-        });*/
+        });
     }
 }

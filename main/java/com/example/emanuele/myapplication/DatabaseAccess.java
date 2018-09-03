@@ -175,6 +175,37 @@ public class DatabaseAccess {
         cursor.close();
         return marks;
     }
+    public List<PointF> getMarksPassaggio(String piano) {
+        List<PointF> marks = new ArrayList<>();
+        Cursor cursor=database.rawQuery("SELECT coordinata_x,coordinata_y from Passaggio WHERE piano=?",new String[] { piano });
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            float x=cursor.getFloat(0);
+            float y=cursor.getFloat(1);
+            marks.add(new PointF(x,y));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return marks;
+    }
+    public void getMarksPassaggioCod(PointF start) {//serve per trovare la posizione di partenza quando l utente all inizio non si trova sul piano corretto
+        Position p=Position.getInstance();
+        List<PointF> marks = new ArrayList<>();
+        Cursor cursor=database.rawQuery("SELECT cod from Passaggio WHERE coordinata_x=? and coordinata_y=?",new String[] {String.valueOf(start.x),String.valueOf(start.y)});
+        cursor.moveToFirst();
+        String cod=cursor.getString(0);
+        cursor.close();
+        Cursor cursor2=database.rawQuery("SELECT coordinata_x,coordinata_y from Passaggio WHERE piano=? and cod=?",new String[] { p.getDestinationPiano(),cod });
+        cursor2.moveToFirst();
+        while (!cursor2.isAfterLast()) {
+            float x=cursor2.getFloat(0);
+            float y=cursor2.getFloat(1);
+            PointF startposition=new PointF(x,y);
+            p.setPosition(startposition,p.getDestinationPiano());
+            cursor2.moveToNext();
+        }
+        cursor2.close();
+    }
 
     /*
     public List<String> getMarksName() {

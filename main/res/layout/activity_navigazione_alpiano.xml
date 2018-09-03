@@ -10,21 +10,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv"
-        android:text="Sarai indirizzato alle scale o all' ascensore più vicini alla tua posizione per poter raggiungere il piano corretto"
+        android:text="Sarai indirizzato alle scale o all' ascensore più vicini alla tua posizione per poter raggiungere il piano corretto. Una volta raggiunto il piano, premi sul pulsante in basso."
         android:padding="10dp"
-        android:textSize="20dp"
-        android:backgroundTint="@color/white"
+        android:textSize="15dp"
+        android:background="@color/white"
         android:textColor="@color/colorAccent" />
 
     <ImageButton
-        android:backgroundTint="@color/white"
         android:id="@+id/button"
-        android:layout_width="103dp"
-        android:layout_height="100dp"
+        android:layout_width="243dp"
+        android:layout_height="69dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+
+        android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
         android:padding="10dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/qrcode" />
+        android:src="@drawable/ok" />
 </RelativeLayout>

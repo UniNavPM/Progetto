@@ -11,6 +11,7 @@ public class Position {
     private String piano;
     private String destinationStanza;
     private String destinationPiano;
+    private PointF cod;
 
     public void setPosition(PointF i,String piano){
         this.position=i;
@@ -31,4 +32,8 @@ public class Position {
 
      public String getDestinationStanza(){return destinationStanza;}
      public String getDestinationPiano(){return destinationPiano;}
+
+
+     public void setTarget(PointF target){this.cod=target;}//servono per il codice della scala o ascensore nell entità passaggio
+     public PointF getTarget(){return this.cod;}
 }
