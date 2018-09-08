@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@drawable/univpmicona1"
         android:label="UNIVPM NAV"
@@ -27,7 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QRCode" />
+        <activity android:name=".QRCode"
+                  android:screenOrientation="fullSensor"
+                  tools:replace="screenOrientation"/>
         <activity android:name=".ListaPiani" />
         <activity android:name=".ListaEdifici" />
         <activity android:name=".ListaStanze" />

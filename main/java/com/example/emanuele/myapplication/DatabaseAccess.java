@@ -62,7 +62,7 @@ public class DatabaseAccess {
      */
     public List<String> getPiani(String a) {
         List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("select nome_piano from Piano where edificio=?",new String[]{a});
+        Cursor cursor = database.rawQuery("select nome_piano from Piano where edificio=? order by codice_piano asc",new String[]{a});
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             list.add(cursor.getString(0));

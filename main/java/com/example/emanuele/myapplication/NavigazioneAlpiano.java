@@ -18,7 +18,7 @@ import com.onlylemi.mapview.library.utils.MapUtils;
 
 import java.util.List;
 
-import static com.example.emanuele.myapplication.VisualizzaPianoStanza.toBitmap;
+import static com.example.emanuele.myapplication.Navigazione.toBitmap;
 
 
 public class NavigazioneAlpiano extends AppCompatActivity {
@@ -64,16 +64,6 @@ public class NavigazioneAlpiano extends AppCompatActivity {
         mapView.setMapViewListener(new MapViewListener() {
             @Override
             public void onMapLoadSuccess() {
-                /*Position p=Position.getInstance();
-                routeLayer = new RouteLayer(mapView);
-                mapView.addLayer(routeLayer);
-                markLayer = new MarkLayer(mapView, marks,marksName);
-                mapView.addLayer(markLayer);
-                List<Integer> routeList = MapUtils.getShortestDistanceBetweenTwoPoints
-                        (p.getPosition(),marks.get(0), nodes,nodesContract);
-                routeLayer.setNodeList(nodes);
-                routeLayer.setRouteList(routeList);
-                mapView.refresh();*/
                 routeLayer = new RouteLayer(mapView);
                 mapView.addLayer(routeLayer);
 

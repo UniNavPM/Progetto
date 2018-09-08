@@ -1,6 +1,7 @@
 package com.example.emanuele.myapplication;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
@@ -16,8 +17,6 @@ import com.onlylemi.mapview.library.layer.RouteLayer;
 import com.onlylemi.mapview.library.utils.MapUtils;
 
 import java.util.List;
-
-import static com.example.emanuele.myapplication.VisualizzaPianoStanza.toBitmap;
 
 
 public class Navigazione extends AppCompatActivity {
@@ -75,5 +74,8 @@ public class Navigazione extends AppCompatActivity {
             }
 
         });
+    }
+    public static Bitmap toBitmap(byte[] image) {
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
 }

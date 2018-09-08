@@ -27,6 +27,8 @@ public class QRCode extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_qrcode);
         buttonScan = (ImageButton) findViewById(R.id.buttonScan);
         qrScan = new IntentIntegrator(this);
+        qrScan.setOrientationLocked(false);
+        qrScan.setBarcodeImageEnabled(true);
         buttonScan.setOnClickListener(this);
         finestra=null;
     }
