@@ -20,4 +20,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void LiEd(View view){startActivity(new Intent(MainActivity.this,ListaEdifici.class));}
     public void Pref(View view){startActivity(new Intent(MainActivity.this,ListaPreferiti.class));}
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
 }

@@ -91,4 +91,8 @@ public class NavigazioneAlpiano extends AppCompatActivity {
 
         });
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

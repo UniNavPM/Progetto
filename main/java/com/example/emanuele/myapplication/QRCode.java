@@ -62,4 +62,8 @@ public class QRCode extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view) {
         qrScan.initiateScan();
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

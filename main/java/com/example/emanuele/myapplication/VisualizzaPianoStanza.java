@@ -132,4 +132,8 @@ public class VisualizzaPianoStanza extends AppCompatActivity {
     public static Bitmap toBitmap(byte[] image) {
         return BitmapFactory.decodeByteArray(image, 0, image.length);
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

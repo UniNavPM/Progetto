@@ -76,4 +76,8 @@ public class Navigazione extends AppCompatActivity {
 
         });
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }
