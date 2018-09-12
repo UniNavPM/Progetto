@@ -149,32 +149,6 @@ public class DatabaseAccess {
         cursor.close();
         return marks;
     }
-    public List<PointF> getNodesPiani(String piano) {
-        List<PointF> marks = new ArrayList<>();
-        Cursor cursor=database.rawQuery("SELECT coordinata_x,coordinata_y from NodesPiani WHERE piano=? order by cod",new String[] { piano });
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            float x=cursor.getFloat(0);
-            float y=cursor.getFloat(1);
-            marks.add(new PointF(x,y));
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return marks;
-    }
-    public List<PointF> getNodesContractPiani(String piano) {
-        List<PointF> marks = new ArrayList<>();
-        Cursor cursor=database.rawQuery("SELECT node1,node2 from NodesContractPiani WHERE piano=? order by node1",new String[] { piano });
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            float x=cursor.getFloat(0);
-            float y=cursor.getFloat(1);
-            marks.add(new PointF(x,y));
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return marks;
-    }
     public List<PointF> getMarksPassaggio(String piano) {
         List<PointF> marks = new ArrayList<>();
         Cursor cursor=database.rawQuery("SELECT coordinata_x,coordinata_y from Passaggio WHERE piano=?",new String[] { piano });
@@ -201,7 +175,7 @@ public class DatabaseAccess {
             float x=cursor2.getFloat(0);
             float y=cursor2.getFloat(1);
             PointF startposition=new PointF(x,y);
-            p.setPosition(startposition,p.getDestinationPiano());
+            p.setPosition(startposition,p.getDestinationPiano());//imposta partenza altro piano
             cursor2.moveToNext();
         }
         cursor2.close();

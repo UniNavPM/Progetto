@@ -38,8 +38,8 @@ public class Navigazione extends AppCompatActivity {
 
         marks =databaseAccess.getMarks(p.getDestinationStanza());
         marks.add(p.getPosition());
-        nodes=databaseAccess.getNodesPiani(p.getDestinationPiano());
-        nodesContract = databaseAccess.getNodesContractPiani(p.getDestinationPiano());
+        nodes=Nod.getNodesList(p.getDestinationPiano());
+        nodesContract=Nod.getNodesContactList(p.getDestinationPiano());
 
         mapView = (MapView) findViewById(R.id.mapview);
         byte[] data = databaseAccess.getImage(p.getPiano());databaseAccess.close();

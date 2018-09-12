@@ -41,8 +41,8 @@ public class VisualizzaPianoStanza extends AppCompatActivity {
         Position p=Position.getInstance();
 
         marks =databaseAccess.getMarks(p.getDestinationStanza());
-        nodes=databaseAccess.getNodesPiani(p.getDestinationPiano());
-        nodesContract = databaseAccess.getNodesContractPiani(p.getDestinationPiano());
+        nodes=Nod.getNodesList(p.getDestinationPiano());
+        nodesContract = Nod.getNodesContactList(p.getDestinationPiano());
 
         mapView = (MapView) findViewById(R.id.mapview);
         MapUtils.init(nodes.size(), nodesContract.size());

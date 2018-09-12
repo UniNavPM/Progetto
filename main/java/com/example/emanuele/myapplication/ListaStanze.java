@@ -35,8 +35,6 @@ public class ListaStanze extends AppCompatActivity implements SearchView.OnQuery
                 Position p=Position.getInstance();
                 String selected =(String) listView.getItemAtPosition(position);
                 Intent finestra=new Intent(getApplicationContext(),VisualizzaPianoStanza.class);
-               // finestra.putExtra("a",getIntent().getExtras().getString("a"));//sostituire il secondo elemento con selected
-                //finestra.putExtra("stanza",selected);//passo il nome della stanza
                 p.setDestination(getIntent().getExtras().getString("a"),selected);
                 startActivity(finestra);
             }

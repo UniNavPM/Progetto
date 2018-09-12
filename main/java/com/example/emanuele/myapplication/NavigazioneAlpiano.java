@@ -53,8 +53,8 @@ public class NavigazioneAlpiano extends AppCompatActivity {
 
         marks =databaseAccess.getMarksPassaggio(p.getPiano());
         //marks.add(p.getPosition());
-        nodes=databaseAccess.getNodesPiani(p.getPiano());
-        nodesContract = databaseAccess.getNodesContractPiani(p.getPiano());
+        nodes=Nod.getNodesList(p.getDestinationPiano());
+        nodesContract = Nod.getNodesContactList(p.getDestinationPiano());
 
         mapView = (MapView) findViewById(R.id.mapview);
         byte[] data = databaseAccess.getImage(p.getPiano());
@@ -64,16 +64,6 @@ public class NavigazioneAlpiano extends AppCompatActivity {
         mapView.setMapViewListener(new MapViewListener() {
             @Override
             public void onMapLoadSuccess() {
-                /*Position p=Position.getInstance();
-                routeLayer = new RouteLayer(mapView);
-                mapView.addLayer(routeLayer);
-                markLayer = new MarkLayer(mapView, marks,marksName);
-                mapView.addLayer(markLayer);
-                List<Integer> routeList = MapUtils.getShortestDistanceBetweenTwoPoints
-                        (p.getPosition(),marks.get(0), nodes,nodesContract);
-                routeLayer.setNodeList(nodes);
-                routeLayer.setRouteList(routeList);
-                mapView.refresh();*/
                 routeLayer = new RouteLayer(mapView);
                 mapView.addLayer(routeLayer);
 
