@@ -52,14 +52,14 @@ public class VisualizzaPianoStanza extends AppCompatActivity {
         mapView.setMapViewListener(new MapViewListener() {
             @Override
             public void onMapLoadSuccess() {
-                routeLayer = new RouteLayer(mapView);
-                mapView.addLayer(routeLayer);
+               // routeLayer = new RouteLayer(mapView);
+               // mapView.addLayer(routeLayer);
                 markLayer = new MarkLayer(mapView, marks,marksName);
                 mapView.addLayer(markLayer);
-                List<Integer> routeList = MapUtils.getShortestDistanceBetweenTwoPoints
+              /*  List<Integer> routeList = MapUtils.getShortestDistanceBetweenTwoPoints         a volte, visualizzando solo il piano mostra comunque un tratto
                         (marks.get(0), marks.get(0), nodes,nodesContract);
                 routeLayer.setNodeList(nodes);
-                routeLayer.setRouteList(routeList);
+                routeLayer.setRouteList(routeList);*/
                 mapView.refresh();
                /* markLayer.setMarkIsClickListener(new MarkLayer.MarkIsClickListener() {
                     @Override
