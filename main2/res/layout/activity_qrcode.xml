@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QRCode">
+
+    <ImageButton
+        android:id="@+id/buttonScan"
+        android:layout_width="183dp"
+        android:layout_height="180dp"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/white"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/qrcode" />
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="15dp"
+        android:text="Inquadra il QRcode per iniziare la navigazione"
+        android:textSize="20dp" />
+
+</RelativeLayout>
