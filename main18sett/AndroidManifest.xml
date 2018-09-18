@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.emanuele.myapplication">
+
+    <meta-data
+        android:name="com.google.android.gms.vision.DEPENDENCIES"
+        android:value="barcode" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission." />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/univpmicona1"
+        android:label="UNIVPM NAV"
+        android:roundIcon="@drawable/univpmicona1"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".QRCode" />
+        <activity android:name=".ListaPiani" />
+        <activity android:name=".ListaEdifici" />
+        <activity android:name=".ListaStanze" />
+        <activity android:name=".ListaPreferiti" />
+        <activity android:name=".VisualizzaPianoStanza" />
+        <activity android:name=".VisualizzaEdificio" />
+        <activity android:name=".Navigazione" />
+        <activity android:name=".NavigazioneAlpiano" />
+        <activity android:name=".QRCodeEdificio" />
+        <activity android:name=".Aiuto" />
+        <activity android:name=".NavigazioneEdificio"></activity>
+    </application>
+
+</manifest>
