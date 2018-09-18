@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Aiuto"
+    android:background="@color/black">
+
+    <TextView
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="15dp"
+        android:text="Questa applicazione ti permette di navigare all'interno dell'Università Politecnica delle Marche attraverso la scansione dei QR Code.\n\n
+- Premendo il tasto 'Scegli Edificio' si aprirà la lista degli edifici del campus, una volta scelto l'edificio si apriranno i suoi piani correlati e dopo la scelta del piano si aprirà la lista dove potrai selezionare la stanza che vuoi raggiungere. A quel punto si aprirà la mappa del piano scelto con un pallino che indica l'aula di destinazione.\n\n
+- Per calcolare il percorso dal punto in cui ti trovi fino alla stanza desiderata premi sul tasto con il QR Code per aprire la fotocamera, successivamente inquadra il QR code più vicino a te e ti verrà mostrato il percorso.\n\n
+- Nella sezione 'Preferiti' puoi gestire le aule che frequenti di più."
+        android:textSize="18dp"
+        android:id="@+id/testo1"/>
+
+</android.support.constraint.ConstraintLayout>
